@@ -1,0 +1,16 @@
+@ 현재 libmodbus-3.0.6 버전 서버에 설치 하였습니다.
+
+
+참고  - http://libmodbus.org/docs/v3.0.6
+
+
+Function code to modbus function
+
+
+  int modbus_read_registers(modbus_t *ctx, int addr, int nb, uint16_t *dest)  - 0x03
+  
+  int modbus_read_input_registers(modbus_t *ctx, int addr, int nb, uint16_t *dest)  - 0x04
+  
+  int modbus_write_register(modbus_t *ctx, int addr, int value)    - 0x06
+  
+  int modbus_write_registers(modbus_t *ctx, int addr, int nb, const uint16_t *src)  - 0x10
