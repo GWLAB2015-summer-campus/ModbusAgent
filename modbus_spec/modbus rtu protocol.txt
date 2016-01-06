@@ -51,7 +51,7 @@ modbus 의 function code
             
         Response
             echo request ( 입력 그대로를 출력 )
-            정보를 저장한 후 Response 한다.
+            정보를 저장한 후 그대로 Response 한다.
             
     
     
