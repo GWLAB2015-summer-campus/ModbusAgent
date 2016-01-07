@@ -10,7 +10,7 @@ modbus 란?
 modbus Slave 내에 존재하는 데이터 저장소
 
     Coil/Register Numbers	Data Addresses	Type	    	Table Name
-    1-9999		        	0000 to 270E	Read-Write  	Discrete Output Coils
+    1-9999		    	0000 to 270E	Read-Write  	Discrete Output Coils
     10001-19999	        	0000 to 270E	Read-Only   	Discrete Input Contacts
     30001-39999	        	0000 to 270E	Read-Only   	Analog Input Registers
     40001-49999	        	0000 to 270E	Read-Write  	Analog Output Holding Registers
