@@ -4,7 +4,13 @@ modbus 란?
     제어를 위한 master 와 제어를 받는 slave 가 존재하여 서로 수직관계를 가짐
     1개의 master 에 최대 247의 slave 가 존재할 수 있으며 slave 들은 각각 1~247 사이의 고유한 Slave ID 를 가진다
     master 모듈은 slave 의 data 를 read/write 가능하다
+    slave device - like server program
+    master device - like client program
+    
  
+ 통신 조건
+    PortName 과 Slave ID 가 slave device, master device 양측 에서 모두 동일해야 통신이 가능하다.
+    연결이 되어 있더라도 Slave ID 가 다르면 slave device 에서 통신을 거부한다.
     
     
 modbus Slave 내에 존재하는 데이터 저장소
@@ -17,7 +23,7 @@ modbus Slave 내에 존재하는 데이터 저장소
 
 
 
-modbus 의 function code
+modbus 의 function code     -- for register read/write
     Read Holing Registers ( 0x03 )  : 여러개의 read/write Register 에서 정보를 읽어온다.
         Request
             11              03              006B                0003              7687
@@ -29,8 +35,6 @@ modbus 의 function code
                                             (3 register * 2 byte)
                                             
       
-      
-      
     Read Input Registers ( 0x04 ) : 한개의 Read only Register 에서 정보를 읽어온다.
         Request
             11              04              0008                0001                B298
@@ -39,8 +43,6 @@ modbus 의 function code
         Response
             11              04              02                  000A                F8F4
             Slave Address   Function code   num of data byte    data                CRC
-            
-            
             
             
     Preset Single Register ( 0x06 )  : 한개의 coil 에 data 를 저장한다.
@@ -53,8 +55,6 @@ modbus 의 function code
             echo request ( 입력 그대로를 출력 )
             정보를 저장한 후 그대로 Response 한다.
             
-    
-    
     
     Preser Multiple Registers ( 0x10 )  : 여러개의 read/write register 에 정보를 저장한다.
         Request
