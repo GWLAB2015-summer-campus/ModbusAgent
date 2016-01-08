@@ -32,3 +32,11 @@ Fucntion                            - using in slave device ( server )
     //  ~~~~~~~ other code ~~~~~~~                           l--- reply -----------           modbus_reply
     //  ~~~~~~~ other code ~~~~~~~
     
+
+
+    modbus_mapping_t modbus_mapping_new(int nb_bits, int nb_input_bits, int nb_registers, int nb_input_registers);
+        //  make storage
+        //  nb_bits              :  RW coil num
+        //  nb_input_bits        :  RO coil num
+        //  nb_registers         :  RW register num
+        //  nb_input_registers   :  RO register num
