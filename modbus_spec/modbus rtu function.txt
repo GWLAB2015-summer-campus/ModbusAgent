@@ -4,8 +4,8 @@
 참고  - http://libmodbus.org/docs/v3.0.6
 
 
-Function code to modbus function
-
+Function code to modbus function    - using in master device( client )
+    // these func can accept receive and reply from slave device.
 
   int modbus_read_registers(modbus_t *ctx, int addr, int nb, uint16_t *dest)  - 0x03
   
@@ -14,3 +14,21 @@ Function code to modbus function
   int modbus_write_register(modbus_t *ctx, int addr, int value)    - 0x06
   
   int modbus_write_registers(modbus_t *ctx, int addr, int nb, const uint16_t *src)  - 0x10
+
+
+Fucntion                            - using in slave device ( server )
+
+  int modbus_receive(modbus_t *ctx, uint8_t *req);
+        //  receive query from master device. this func accept all function call from master device
+        
+  *int modbus_reply(modbus_t *ctx, const uint8_t *req, int req_length, modbus_mapping_t *mb_mapping);
+        //  reply quert to master device. 
+        
+    //            master device source code                                                 slave device source code
+    
+    //  ~~~~~~~ other code ~~~~~~~                                                            ~~~~~~~ other code ~~~~~~~
+    //  modbus_read_registers (or other master's func)        ---- request --------->        modbus_receive
+    //              (waiting)                        <--------                               ~~~~~~~ other code ~~~~~~~
+    //  ~~~~~~~ other code ~~~~~~~                           l--- reply -----------           modbus_reply
+    //  ~~~~~~~ other code ~~~~~~~
+    
