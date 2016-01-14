@@ -25,12 +25,13 @@
   >     void init_register_data( uint16_t *regi ) 함수<br>
   >           : register 내부의 값을 기본값으로 초기화 시킨다.<br>
   
-#func.h func.c
+#usrdef_modbus_receive.h      usrdef_modbus_receive.c
   > odbus library 의 modbus_reply 함수에 memory flag 를 넣기 위해 만든 header 및 source<br>
   > modbus_reply 함수와 기본적으로 동일하나 register 에 값 입력 시 호출되는 함수 ( 0x06, 0x10 ) 에서 flag 값 검사로 인한 분기 설정<br>
   
   
 #cli.c
   > Master module 을 표현하기 위한 client program<br>
-  > Slave module 에 명령어를 입력하여 read, write 가능<br>
+  > 최대 247개 까지의 연결을 만들 수 있다.<br>
+  > 연결을 선택하고 선택된 Slave module 에 명령어를 입력하여 read, write 가능<br>
   > modbus library 의 function 0x03, 0x06, 0x01 을 이용하여 기능 구현<br>
