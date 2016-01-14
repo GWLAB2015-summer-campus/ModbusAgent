@@ -1,4 +1,6 @@
 #실행 방법
+  > 프로그램 실행 이전에 export LD_LIBRARY_PATH=/usr/local/lib 명령어 입력<br>
+  > 포함 라이브러리 고정주소 입력<br><br>
   > serv : ./serv <portName> <SlaveID> <option><br>
   >   ex) ./serv /dev/pts/1 17 ON               // debug option 사용하면서 실행<br>
   >       ./serv /dev/pts/1 17                  // debug option 사용하지 않으면서 실행<br>
