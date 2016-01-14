@@ -1,9 +1,19 @@
+#실행 방법
+  > serv : ./serv <portName> <SlaveID> <option><br>
+  >   ex) ./serv /dev/pts/1 17 ON               // debug option 사용하면서 실행<br>
+  >       ./serv /dev/pts/1 17                  // debug option 사용하지 않으면서 실행<br>
+  >       ./serv /dev/pts/1 17 asdfx            // debuf option 사용하지 않으면서 실행, ON 에만 반응함<br><br><br>
+  > cli  : ./cli<br>
+  >   실행 후 새로운 연결을 만든다. 연결을 선택하고 query 문을 이용하여 통신한다.<br><br><br>
+
+
 #modbus-private.h
   > modbus library의 modbus_reply 함수를 꺼내 변경하기 위해 가져옴<br>
   > modbus_reply 에서 사용되는 다양한 상수값(define) 이 정의되어 있음<br>
   
 #unit-test.h
   > 현재 구현된 server, client 모델에서 공유하는 상수 값 및 const 변수들<br>
+  > register memory 가 RO 인지 RW 인지 구별하기 위한 flag 존재<br>
   
 #serv.c
   > Slave module 을 표현하기 위한 server program<br>
@@ -24,5 +34,3 @@
   > Master module 을 표현하기 위한 client program<br>
   > Slave module 에 명령어를 입력하여 read, write 가능<br>
   > modbus library 의 function 0x03, 0x06, 0x01 을 이용하여 기능 구현<br>
-  
-
